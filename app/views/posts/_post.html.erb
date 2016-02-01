@@ -1,0 +1,24 @@
+<article class="post">
+	<header>
+		<div class="title">
+			<h2><%= link_to post.title_uk, post %></h2>
+			<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+		</div>
+		<div class="meta">
+			<time class="published" datetime="2015-11-01"><%= post.created_at %></time>
+			<a href="#" class="author"><span class="name"><%= post.author.name_uk %></span><img src="assets/cat-ostap.jpeg" alt="" /></a>
+		</div>
+	</header>
+	<a href="#" class="image featured"><img src="assets/image.jpg" alt="" /></a>
+	<p><%= post.body_uk %></p>
+	<footer>
+		<ul class="actions">
+			<li><a href="#" class="button big">Continue Reading</a></li>
+		</ul>
+		<ul class="stats">
+			<li><a href="#">General</a></li>
+			<li><a href="#" class="icon fa-heart">28</a></li>
+			<li><a href="#" class="icon fa-comment">128</a></li>
+		</ul>
+	</footer>
+</article>
