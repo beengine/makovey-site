@@ -1,0 +1,15 @@
+<h1>Makovey school posts</h1>
+
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<% @posts.each do |post| %>
+	<div>
+		<h2><%= link_to post.title_uk, post %></h2>
+		<p><%= post.body_uk %></p>
+		<p><%= post.author.name_uk %></p>
+		<p><%= post.created_at %></p>
+
+	</div>
+<% end %>
