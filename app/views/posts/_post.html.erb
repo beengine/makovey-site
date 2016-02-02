@@ -5,7 +5,7 @@
 			<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
 		</div>
 		<div class="meta">
-			<time class="published" datetime="2015-11-01"><%= post.created_at %></time>
+			<time class="published"><%= time_ago_in_words(post.created_at) %></time>
 			<a href="#" class="author"><span class="name"><%= post.author.name_uk %></span><img src="assets/cat-ostap.jpeg" alt="" /></a>
 		</div>
 	</header>
