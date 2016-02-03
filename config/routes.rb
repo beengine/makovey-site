@@ -1,4 +1,6 @@
 MakoveySite::Application.routes.draw do
+  get "authors/index"
+  get "authors/show"
   get "posts/index"
   get "posts/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
