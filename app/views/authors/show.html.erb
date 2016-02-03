@@ -1,2 +1,16 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<article class="post">
+	<header>
+		<div class="title">
+			<h2><%= @author.name_uk %></h2>
+			<p><%= mail_to @author.email %></p>
+		</div>
+		<div class="meta">
+			<time class="published"><%= localize(@author.created_at, format: :authjoin) %></time>
+			<a href="#" class="author"><span class="name">Постів:<%= @author.posts.size %></span><%= image_tag(@author.image_url) %></a>
+		</div>
+	</header>
+	<section>
+		<p><%= @author.info_uk %></p>
+	</section>
+</article>
+<%= render(@author.posts) %>

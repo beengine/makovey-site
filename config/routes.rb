@@ -1,8 +1,6 @@
 MakoveySite::Application.routes.draw do
-  get "authors/index"
-  get "authors/show"
-  get "posts/index"
-  get "posts/show"
+  get "rubrics/index"
+  get "rubrics/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,6 +9,8 @@ MakoveySite::Application.routes.draw do
   # You can have the root of your site routed with "root"
    root to:'posts#index'
    resources :posts, only: [:index, :show]
+   resources :authors, only: [:index, :show]
+   resources :rubrics, only: [:index, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

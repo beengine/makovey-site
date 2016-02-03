@@ -13,7 +13,7 @@
 	<p><%= @post.body_uk %></p>
 	<footer>
 		<ul class="stats">
-			<li><a href="#"><%= @post.rubric.name_uk %></a></li>
+			<li><%= link_to @post.rubric.name_uk, @post.rubric %></li>
 			<li><a href="#" class="icon fa-heart">28</a></li>
 			<li><a href="#" class="icon fa-eye">128</a></li>
 		</ul>

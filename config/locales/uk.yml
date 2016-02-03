@@ -11,6 +11,8 @@ uk:
   next: "Наступна сторінка"
   search: "Пошук"
   moto: "Новий сайт школи Маковея. Зроблено з любов'ю до котиків"
+  joined: "Приєднався"
+  authors: "Автори"
 
   activerecord:
     errors:
@@ -263,4 +265,6 @@ uk:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
+      onlydate: "%d %b"
+      authjoin: "З нами з %b %Y"
     pm: по полудні
