@@ -1,6 +1,4 @@
 MakoveySite::Application.routes.draw do
-  get "rubrics/index"
-  get "rubrics/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

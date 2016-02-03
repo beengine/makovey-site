@@ -6,7 +6,7 @@
 		</div>
 		<div class="meta">
 			<time class="published"><%= localize(author.created_at, format: :authjoin) %></time>
-			<a href="#" class="author"><span class="name">Постів:<%= author.posts.size %></span><%= image_tag(author.image_url) %></a>
+			<a href="#" class="author"><span class="name">Постів:<%= author.posts.size %></span><%= image_tag(author.avatar.url) %></a>
 		</div>
 	</header>
 	<section>
