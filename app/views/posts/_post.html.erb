@@ -8,12 +8,12 @@
 			<time class="published"><%= localize(post.created_at, format: :short) %></time>
 			<%= link_to post.author, class: "author" do %>
 				<span class="name"><%= post.author.name_uk %></span>
-				<%= image_tag(post.author.image_url) %>
+				<%= image_tag(post.author.avatar) %>
 			<% end %>
 		</div>
 	</header>
 	<a href="#" class="image featured"><%= image_tag(post.image_url) %></a>
-	<p><%= truncate(post.body_uk, length: 200, separator: ' ') %></p>
+	<p><%= sanitize(post.body_uk).truncate(200, separator: ' ').html_safe %></p>
 	<footer>
 		<ul class="actions">
 			<li><%= link_to t('continue'), post, class: "button big" %></li>

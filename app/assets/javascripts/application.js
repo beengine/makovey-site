@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require ckeditor/init
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @n33co

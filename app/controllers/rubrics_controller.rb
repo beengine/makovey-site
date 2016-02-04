@@ -4,6 +4,6 @@ class RubricsController < ApplicationController
   end
 
   def show
-  	@rubric=Rubric.find(params[:id])
+  	@rubric=Rubric.friendly.find(params[:id])
   end
 end

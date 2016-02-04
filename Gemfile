@@ -31,6 +31,13 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'ckeditor'
+
+gem 'kaminari'
+
+gem 'friendly_id'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

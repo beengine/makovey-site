@@ -7,12 +7,14 @@ uk:
   photo: "Фотогалерея"
   about: "Про нас"
   continue: "Читати далі"
+  continueauth: "Читати автора"
   prev: "Попередня сторінка"
   next: "Наступна сторінка"
   search: "Пошук"
   moto: "Новий сайт школи Маковея. Зроблено з любов'ю до котиків"
   joined: "Приєднався"
   authors: "Автори"
+  posts: "Постів:"
 
   activerecord:
     errors:
@@ -266,5 +268,5 @@ uk:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
       onlydate: "%d %b"
-      authjoin: "З нами з %b %Y"
+      authjoin: "З нами з %B %Y"
     pm: по полудні

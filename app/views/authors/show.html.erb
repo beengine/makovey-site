@@ -6,11 +6,14 @@
 		</div>
 		<div class="meta">
 			<time class="published"><%= localize(@author.created_at, format: :authjoin) %></time>
-			<a href="#" class="author"><span class="name">Постів:<%= @author.posts.size %></span><%= image_tag(@author.image_url) %></a>
+			<%= link_to @author, class: "author" do %>
+				<span class="name"><%= t('posts') %><%= @author.posts.size %></span>
+				<%= image_tag(@author.avatar) %>
+			<% end %>
 		</div>
 	</header>
 	<section>
-		<p><%= @author.info_uk %></p>
+		<p><%= sanitize(@author.info_uk) %></p>
 	</section>
 </article>
 <%= render(@author.posts) %>

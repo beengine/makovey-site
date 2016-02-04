@@ -1,14 +1,22 @@
 MakoveySite::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
+    concern :paginatable do
+      get '(p/:page)', :action => :index, :on => :collection, :as => ''
+    end
+
    root to:'posts#index'
-   resources :posts, only: [:index, :show]
-   resources :authors, only: [:index, :show]
+   resources :posts, only: [:index, :show], :concerns => :paginatable
+   resources :authors, only: [:index, :show], :concerns => :paginatable
    resources :rubrics, only: [:index, :show]
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

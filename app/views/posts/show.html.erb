@@ -5,12 +5,15 @@
 			<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
 		</div>
 		<div class="meta">
-			<time class="published"><%= time_ago_in_words(@post.created_at) %></time>
-			<a href="#" class="author"><span class="name"><%= @post.author.name_uk %></span><%= image_tag(@post.author.image_url) %></a>
+			<time class="published"><%= localize(@post.created_at, format: :long) %></time>
+			<%= link_to @post.author, class: "author" do %>
+				<span class="name"><%= @post.author.name_uk %></span>
+				<%= image_tag(@post.author.avatar) %>
+			<% end %>
 		</div>
 	</header>
 	<a href="#" class="image featured"><%= image_tag(@post.image_url) %></a>
-	<p><%= @post.body_uk %></p>
+	<p><%= sanitize(@post.body_uk) %></p>
 	<footer>
 		<ul class="stats">
 			<li><%= link_to @post.rubric.name_uk, @post.rubric %></li>

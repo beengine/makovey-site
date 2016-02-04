@@ -6,15 +6,18 @@
 		</div>
 		<div class="meta">
 			<time class="published"><%= localize(author.created_at, format: :authjoin) %></time>
-			<a href="#" class="author"><span class="name">Постів:<%= author.posts.size %></span><%= image_tag(author.avatar.url) %></a>
+			<%= link_to author, class: "author" do %>
+				<span class="name"><%= t('posts') %><%= author.posts.size %></span>
+				<%= image_tag(author.avatar) %>
+			<% end %>
 		</div>
 	</header>
 	<section>
-		<p><%= truncate(author.info_uk, length: 200, separator: ' ') %></p>
+		<p><%= truncate(sanitize(author.info_uk), length: 200, separator: ' ') %></p>
 	</section>
 	<footer>
 		<ul class="actions">
-			<li><%= link_to t('continue'), author, class: "button big" %></li>
+			<li><%= link_to t('continueauth'), author, class: "button big" %></li>
 		</ul>
 		<ul class="stats">
 			<li><a href="#"><%= t('authors') %></a></li>
