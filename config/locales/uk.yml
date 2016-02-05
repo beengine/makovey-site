@@ -269,4 +269,5 @@ uk:
       short: "%d %b, %H:%M"
       onlydate: "%d %b"
       authjoin: "З нами з %B %Y"
+      side_post: "%d %B %Y"
     pm: по полудні

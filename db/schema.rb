@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204210153) do
+ActiveRecord::Schema.define(version: 20160205205927) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160204210153) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "slug"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160204210153) do
     t.integer  "rubric_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "post_photo"
   end
 
   add_index "posts", ["author_id"], name: "index_posts_on_author_id"

@@ -11,10 +11,15 @@ MakoveySite::Application.routes.draw do
       get '(p/:page)', :action => :index, :on => :collection, :as => ''
     end
 
+    concern :nested_paginatable do
+      get '(p/:page)', :action => :show, :on => :member, :as => ''
+    end
+
+
    root to:'posts#index'
    resources :posts, only: [:index, :show], :concerns => :paginatable
-   resources :authors, only: [:index, :show], :concerns => :paginatable
-   resources :rubrics, only: [:index, :show]
+   resources :authors, only: [:index, :show], :concerns => [:paginatable, :nested_paginatable]
+   resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
 
 
 

@@ -16,4 +16,8 @@
 		<p><%= sanitize(@author.info_uk) %></p>
 	</section>
 </article>
-<%= render(@author.posts) %>
+<%= render(@posts) %>
+<ul class="actions pagination">
+	<li><%= link_to_previous_page @posts, t('prev'), class: "button big previous" %></li>
+	<li><%= link_to_next_page @posts, t('next'), class: "button big next" %></li>
+</ul>

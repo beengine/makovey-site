@@ -4,7 +4,7 @@ ActiveAdmin.register Post do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-	permit_params :title_uk, :title_en, :author_id, :body_uk, :body_en, :image_url, :rubric_id
+	permit_params :title_uk, :title_en, :author_id, :body_uk, :body_en, :image_url, :rubric_id, :post_photo
 	index do
     column :title_uk
     column :author
@@ -17,6 +17,7 @@ ActiveAdmin.register Post do
 			input :author
 			input :rubric
 			input :image_url
+			input :post_photo
 			input :title_uk
 			input :title_en
 			input :body_uk, :as => :ckeditor

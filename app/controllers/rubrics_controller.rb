@@ -5,5 +5,6 @@ class RubricsController < ApplicationController
 
   def show
   	@rubric=Rubric.friendly.find(params[:id])
+  	@posts=@rubric.posts.page(params[:page]).per(5)
   end
 end

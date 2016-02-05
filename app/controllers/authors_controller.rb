@@ -4,6 +4,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
-  	@author=Author.find(params[:id])
+  	@author=Author.friendly.find(params[:id])
+  	@posts=@author.posts.page(params[:page]).per(5)
   end
 end

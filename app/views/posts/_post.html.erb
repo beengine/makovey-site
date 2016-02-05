@@ -12,7 +12,7 @@
 			<% end %>
 		</div>
 	</header>
-	<a href="#" class="image featured"><%= image_tag(post.image_url) %></a>
+	<a href="#" class="image featured"><%= image_tag(post.post_photo) %></a>
 	<p><%= sanitize(post.body_uk).truncate(200, separator: ' ').html_safe %></p>
 	<footer>
 		<ul class="actions">
