@@ -2,7 +2,7 @@
 	<header>
 		<div class="title">
 			<h2><%= @post.title_uk %></h2>
-			<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+			<%= snd_title_is_empty @post %>
 		</div>
 		<div class="meta">
 			<time class="published"><%= localize(@post.created_at, format: :long) %></time>
@@ -12,13 +12,13 @@
 			<% end %>
 		</div>
 	</header>
-	<a href="#" class="image featured"><%= image_tag(@post.post_photo) %></a>
+	<%= photo_is_empty @post %>
 	<p><%= sanitize(@post.body_uk) %></p>
 	<footer>
 		<ul class="stats">
 			<li><%= link_to @post.rubric.name_uk, @post.rubric %></li>
 			<li><a href="#" class="icon fa-heart">28</a></li>
-			<li><a href="#" class="icon fa-eye">128</a></li>
+			<li><a href="#" class="icon fa-eye"><%= @post.impressionist_count %></a></li>
 		</ul>
 	</footer>
 </article>

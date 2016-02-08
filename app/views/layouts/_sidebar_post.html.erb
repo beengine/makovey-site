@@ -7,7 +7,7 @@
 							<h3><%= link_to post.title_uk, post %></h3>
 							<time class="published"><%= localize(post.created_at, format: :side_post) %></time>
 						</header>
-						<a href="#" class="image"><%= image_tag(post.post_photo) %></a>
+						<%= photo_is_empty_side post %>
 					</article>
 				</li>
 			<% end %>
