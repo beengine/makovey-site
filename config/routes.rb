@@ -21,7 +21,7 @@ MakoveySite::Application.routes.draw do
    resources :authors, only: [:index, :show], :concerns => [:paginatable, :nested_paginatable]
    resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
 
-
+   get 'schedule' => 'posts#schedule'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

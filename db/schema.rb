@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208212401) do
+ActiveRecord::Schema.define(version: 20160209214957) do
 
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace",     limit: 255
     t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
+    t.string   "resource_id",   limit: 255, null: false
+    t.string   "resource_type", limit: 255, null: false
     t.integer  "author_id"
-    t.string   "author_type"
+    t.string   "author_type",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,39 +28,39 @@ ActiveRecord::Schema.define(version: 20160208212401) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
-  create_table "admin_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "authors", force: true do |t|
-    t.string   "name_uk"
-    t.string   "name_en"
-    t.string   "email"
+  create_table "authors", force: :cascade do |t|
+    t.string   "name_uk",    limit: 255
+    t.string   "name_en",    limit: 255
+    t.string   "email",      limit: 255
     t.text     "info_uk"
     t.text     "info_en"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar"
-    t.string   "slug"
+    t.string   "avatar",     limit: 255
+    t.string   "slug",       limit: 255
   end
 
-  create_table "ckeditor_assets", force: true do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
     t.integer  "data_file_size"
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 20160208212401) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "friendly_id_slugs", force: true do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",               null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope"
+    t.string   "scope",          limit: 255
     t.datetime "created_at"
   end
 
@@ -87,16 +87,16 @@ ActiveRecord::Schema.define(version: 20160208212401) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "impressions", force: true do |t|
-    t.string   "impressionable_type"
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type", limit: 255
     t.integer  "impressionable_id"
     t.integer  "user_id"
-    t.string   "controller_name"
-    t.string   "action_name"
-    t.string   "view_name"
-    t.string   "request_hash"
-    t.string   "ip_address"
-    t.string   "session_hash"
+    t.string   "controller_name",     limit: 255
+    t.string   "action_name",         limit: 255
+    t.string   "view_name",           limit: 255
+    t.string   "request_hash",        limit: 255
+    t.string   "ip_address",          limit: 255
+    t.string   "session_hash",        limit: 255
     t.text     "message"
     t.text     "referrer"
     t.datetime "created_at"
@@ -112,9 +112,9 @@ ActiveRecord::Schema.define(version: 20160208212401) do
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
 
-  create_table "posts", force: true do |t|
-    t.string   "title_uk"
-    t.string   "title_en"
+  create_table "posts", force: :cascade do |t|
+    t.string   "title_uk",        limit: 255
+    t.string   "title_en",        limit: 255
     t.integer  "author_id"
     t.text     "body_uk"
     t.text     "body_en"
@@ -122,17 +122,17 @@ ActiveRecord::Schema.define(version: 20160208212401) do
     t.integer  "rubric_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "post_photo"
-    t.string   "slug"
-    t.string   "second_title_uk"
-    t.string   "second_title_en"
+    t.string   "post_photo",      limit: 255
+    t.string   "slug",            limit: 255
+    t.string   "second_title_uk", limit: 255
+    t.string   "second_title_en", limit: 255
   end
 
   add_index "posts", ["author_id"], name: "index_posts_on_author_id"
   add_index "posts", ["rubric_id"], name: "index_posts_on_rubric_id"
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
-  create_table "posts_tags", id: false, force: true do |t|
+  create_table "posts_tags", id: false, force: :cascade do |t|
     t.integer "post_id"
     t.integer "tag_id"
   end
@@ -140,19 +140,30 @@ ActiveRecord::Schema.define(version: 20160208212401) do
   add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id"
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id"
 
-  create_table "rubrics", force: true do |t|
-    t.string   "name_uk"
-    t.string   "name_en"
+  create_table "rubrics", force: :cascade do |t|
+    t.string   "name_uk",    limit: 255
+    t.string   "name_en",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
+    t.string   "slug",       limit: 255
   end
 
-  create_table "tags", force: true do |t|
-    t.string   "name_uk"
-    t.string   "name_en"
+  create_table "tags", force: :cascade do |t|
+    t.string   "name_uk",    limit: 255
+    t.string   "name_en",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string   "name_uk"
+    t.string   "name_en"
+    t.string   "photo"
+    t.text     "info_uk"
+    t.text     "info_en"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
