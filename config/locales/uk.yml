@@ -15,6 +15,12 @@ uk:
   joined: "Приєднався"
   authors: "Автори"
   posts: "Постів:"
+  
+  subject:
+    algebra: "Алгебра"
+    geometry: "Геометрія"
+    ukrainian: "Українська мова"
+    biology: "Біологія"
 
   activerecord:
     errors:

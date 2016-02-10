@@ -36,3 +36,9 @@ en:
   joined: "Joined"
   authors: "Authors"
   posts: "Posts:"
+  
+  subject:
+    algebra: "algebra"
+    geometry: "geometry"
+    ukrainian: "Ukrainian"
+    biology: "biology"

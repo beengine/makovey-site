@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209214957) do
+ActiveRecord::Schema.define(version: 20160210094505) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -73,6 +73,20 @@ ActiveRecord::Schema.define(version: 20160209214957) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "classses", force: :cascade do |t|
+    t.string   "name_uk"
+    t.string   "name_en"
+    t.string   "photo"
+    t.integer  "teacher_id"
+    t.text     "info_uk"
+    t.text     "info_en"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "classses", ["teacher_id"], name: "index_classses_on_teacher_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -146,6 +160,25 @@ ActiveRecord::Schema.define(version: 20160209214957) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug",       limit: 255
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "classs_id"
+    t.integer  "subject_id"
+    t.integer  "teacher_id"
+    t.integer  "day_of_week"
+    t.integer  "lesson"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "schedules", ["classs_id"], name: "index_schedules_on_classs_id"
+  add_index "schedules", ["subject_id"], name: "index_schedules_on_subject_id"
+  add_index "schedules", ["teacher_id"], name: "index_schedules_on_teacher_id"
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name_uk"
+    t.string "name_en"
   end
 
   create_table "tags", force: :cascade do |t|

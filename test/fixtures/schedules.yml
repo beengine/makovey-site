@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class: 1
+  subject: 1
+  teacher_id: 
+  day_of_week: 1
+  lesson: 1
+
+two:
+  class: 1
+  subject: 1
+  teacher_id: 
+  day_of_week: 1
+  lesson: 1
