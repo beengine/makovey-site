@@ -8,6 +8,4 @@ class PostsController < ApplicationController
   	@post=Post.find(params[:id])
   	impressionist @post
   end
-  def schedule
-  end
 end

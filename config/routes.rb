@@ -1,4 +1,8 @@
 MakoveySite::Application.routes.draw do
+  get 'classses/index'
+
+  get 'classses/show'
+
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -20,8 +24,8 @@ MakoveySite::Application.routes.draw do
    resources :posts, only: [:index, :show], :concerns => :paginatable
    resources :authors, only: [:index, :show], :concerns => [:paginatable, :nested_paginatable]
    resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
-
-   get 'schedule' => 'posts#schedule'
+   resources :classses, only: [:index, :show]
+   # get 'schedule' => 'posts#schedule'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
