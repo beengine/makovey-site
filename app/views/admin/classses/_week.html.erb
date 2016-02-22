@@ -1,0 +1,31 @@
+<%= semantic_form_for [:admin, @classs] do |classs_f| %>
+	<%= classs_f.inputs "Розклад" do %>
+	<div class="schedulle">
+	<table>
+		<tr><td> Понеділок <br>
+			<%= render partial: 'admin/classses/day', locals: {day: 0, classs_f: classs_f} %></td>
+			<td> Четвер <br>
+			<%= render partial: 'admin/classses/day', locals: {day: 3, classs_f: classs_f} %> </td></tr>
+		<tr><td> Вівторок <br>
+		<%= render partial: 'admin/classses/day', locals: {day: 1, classs_f: classs_f} %> </td>
+			<td>П'ятниця <br>
+			 <%= render partial: 'admin/classses/day', locals: {day: 4, classs_f: classs_f} %> </td></tr>
+		<tr><td> Середа <br>
+		<%= render partial: 'admin/classses/day', locals: {day: 2, classs_f: classs_f} %> </td>
+			<td>Субота <br>
+			 <%= render partial: 'admin/classses/day', locals: {day: 5, classs_f: classs_f} %> </td></tr>
+		</table>
+		</div>
+		<% end %>
+
+	<%= classs_f.inputs "Про клас" do  %>
+		<%= classs_f.input :name_uk %>
+		<%= classs_f.input :name_en %>
+		<%= classs_f.input :photo %>
+		<%= classs_f.input :teacher_id, as: :select, collection: @teachers %>
+		<%= classs_f.input :info_uk, :as => :ckeditor %>
+		<%= classs_f.input :info_en, :as => :ckeditor %>
+	<% end %>
+	<%= classs_f.actions %>
+<% end %>
+

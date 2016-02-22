@@ -4,6 +4,10 @@ class ClasssesController < ApplicationController
   end
 
   def show
-  	@classs=Classs.find(params[:id])
+  	@classs=Classs.friendly.find(params[:id])
+  end
+  def schedule
+    @classs=Classs.friendly.find(params[:id])
+    @schedules=@classs.schedules.order("day_of_week")
   end
 end

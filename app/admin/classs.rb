@@ -3,22 +3,30 @@ ActiveAdmin.register Classs do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :name_uk, :name_en, :photo, :teacher_id, :info_uk, :info_en
+ permit_params :name_uk, :name_en, :photo, :teacher_id, :info_uk, :info_en, schedules_attributes: [ :id, :subject_id, :teacher_id, :day_of_week, :lesson ]
 
- 	form do |f|
- 		f.inputs 'Розклад' do
- 			f.has_many :schedules, new_record: false do |t|
- 				t.input :lesson
- 				t.input :teacher_id
- 				t.input :day_of_week
- 			end
- 		end
+  form partial: 'week'
 
-		f.semantic_errors
-		f.inputs 'Про клас'
-		f.actions
+  controller do
+    def new
+      @classs=Classs.new
+      @teachers=Teacher.all
+      @subjects=Subject.all
+      6.times do |day|
+        8.times { |lesson| @classs.schedules.build(lesson: lesson, day_of_week: day) }
+      end
+    #  super
+    end
 
-	end
+    def edit
+      @teachers=Teacher.all
+      @subjects=Subject.all
+      super
+    end
+
+  end
+
+
 #
 # or
 #

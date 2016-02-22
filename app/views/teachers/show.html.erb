@@ -1,0 +1,23 @@
+<article class="post">
+	<header>
+		<div class="title">
+			<h2><%= @teacher.name_uk %></h2>
+			<p><%= @teacher.name_uk %></p>
+		</div>
+		<div class="meta">
+			<time class="published"><%= localize(@teacher.created_at, format: :authjoin) %></time>
+			<%= link_to @teacher, class: "author" do %>
+				<span class="name"><%= @teacher.classs %></span>
+			<%#	<%= image_tag(@author.avatar) %>
+			<% end %>
+		</div>
+	</header>
+	<section>
+		<p><%= sanitize(@teacher.info_uk) %></p>
+	</section>
+</article>
+<%#<%= render(@posts) %>
+<%#<ul class="actions pagination">
+<%#	<li><%= link_to_previous_page @posts, t('prev'), class: "button big previous" %></li>
+<%#	<li><%= link_to_next_page @posts, t('next'), class: "button big next" %></li>
+<%#</ul>

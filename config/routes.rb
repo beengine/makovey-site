@@ -1,4 +1,8 @@
 MakoveySite::Application.routes.draw do
+  get 'teachers/index'
+
+  get 'teachers/show'
+
   get 'classses/index'
 
   get 'classses/show'
@@ -22,10 +26,11 @@ MakoveySite::Application.routes.draw do
 
    root to:'posts#index'
    resources :posts, only: [:index, :show], :concerns => :paginatable
-   resources :authors, only: [:index, :show], :concerns => [:paginatable, :nested_paginatable]
+   resources :authors, only: [:index, :show], :concerns => [:nested_paginatable, :paginatable]
    resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
    resources :classses, only: [:index, :show]
-   # get 'schedule' => 'posts#schedule'
+   resources :teachers, only: [:index, :show]
+    get 'schedule/:id' => 'classses#schedule'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

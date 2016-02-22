@@ -1,0 +1,7 @@
+<%= classs_f.fields_for :schedules, classs_f.object.schedules.select { |g| g.day_of_week == day} do |f| %>
+	<%= f.text_field :lesson, type: "hidden" %>
+	<%= f.text_field :day_of_week, type: "hidden" %>
+	<%= f.input :subject_id, as: :select, collection: @subjects, prompt: "Предмет", label: false %>
+	<%= f.input :teacher_id, as: :select, collection: @teachers, prompt: "Вчитель", label: false %>
+	<br>
+<% end %>	

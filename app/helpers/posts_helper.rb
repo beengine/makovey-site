@@ -1,12 +1,12 @@
 module PostsHelper
-	def photo_is_empty(post)
-		unless post.post_photo.blank?
-			raw "<a class=\"image featured\">#{image_tag(post.post_photo)}</a>"
-		end
-	end
-	def snd_title_is_empty(post)
-		unless post.second_title_uk.blank?
-			raw "<p>#{post.second_title_uk}</p>"
-		end
-	end
+  def photo_is_empty(post)
+    unless post.post_photo.blank?
+    content_tag :a, image_tag(post.post_photo), class: "image featured"
+    end
+  end
+  def snd_title_is_empty(post)
+    unless post.second_title_uk.blank?
+    content_tag :p, post.second_title_uk
+    end
+  end
 end
