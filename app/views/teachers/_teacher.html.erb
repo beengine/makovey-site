@@ -1,17 +1,14 @@
 <article class="post">
-	<header>
+	<header class="teacher">
 		<div class="title">
-			<h2><%= @teacher.name_uk %></h2>
+			<h2><%= link_to teacher.name_uk, teacher %></h2>
 			<p>Вчитель космічних ракет</p>
 			<p>Працює з 1909 року</p>
 		</div>
 		<div class="meta">
-			<%= link_to @teacher, class: "teacher" do %>
+			<%= link_to teacher, class: "teacher" do %>
 				<%= image_tag("/assets/cat-ostap.jpeg") %>
 			<% end %>
 		</div>
 	</header>
-	<section>
-		<p><%= sanitize(@teacher.info_uk) %></p>
-	</section>
 </article>
