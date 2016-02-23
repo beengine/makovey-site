@@ -1,3 +1,7 @@
+<%= form_tag("/schedule", method: "post") do %>
+  <%= select_tag(:id, options_from_collection_for_select(Classs.all, :id, :name_uk)) %>
+  <%= submit_tag("Вибрати") %>
+<% end %>
 <div class="table-wrapper">
 	<table>
 		<thead>

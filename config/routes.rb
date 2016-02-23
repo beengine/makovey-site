@@ -23,9 +23,12 @@ MakoveySite::Application.routes.draw do
     resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
     resources :classses, only: [:index, :show]
     resources :teachers, only: [:index, :show]
-    get 'schedule/:id' => 'classses#schedule'
+    get 'schedule/:id' => 'classses#schedule', as: 'schedule'
+    get 'schedule' => 'classses#schedules'
+    post 'schedule' => 'classses#search'
     get '/about' => 'pages#about'
     get '/history' => 'pages#history'
+    get '/contacts' => 'pages#contacts'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

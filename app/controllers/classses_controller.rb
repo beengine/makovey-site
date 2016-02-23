@@ -10,4 +10,10 @@ class ClasssesController < ApplicationController
     @classs=Classs.friendly.find(params[:id])
     @schedules=@classs.schedules.order("day_of_week")
   end
+  def schedules
+  end
+  def search
+    classs=Classs.friendly.find(params[:id])
+    redirect_to schedule_url(classs)
+  end
 end

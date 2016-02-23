@@ -1,0 +1,4 @@
+<%= form_tag("/schedule", method: "post") do %>
+  <%= select_tag(:id, options_from_collection_for_select(Classs.all, :id, :name_uk),{ :class => 'select-wrapper' }) %>
+  <%= submit_tag("Вибрати") %>
+<% end %>
