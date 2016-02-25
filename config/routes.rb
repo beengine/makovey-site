@@ -1,5 +1,29 @@
 MakoveySite::Application.routes.draw do
 
+  namespace :live do
+  get 'rubrics/index'
+  end
+
+  namespace :live do
+  get 'rubrics/show'
+  end
+
+  namespace :live do
+  get 'authors/index'
+  end
+
+  namespace :live do
+  get 'authors/show'
+  end
+
+  namespace :live do
+  get 'posts/index'
+  end
+
+  namespace :live do
+  get 'posts/show'
+  end
+
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -17,7 +41,15 @@ MakoveySite::Application.routes.draw do
       get '(p/:page)', :action => :show, :on => :member, :as => ''
     end
 
+  namespace :live do
+    constraints subdomain: 'live' do
+      resources :posts, only: [:index, :show], :concerns => :paginatable
+      resources :authors, only: [:index, :show], :concerns => [:nested_paginatable, :paginatable]
+      resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
+    end
+  end
 
+  constraints subdomain: /^$|www/ do
     root to:'pages#about'
     resources :posts, only: [:index, :show], :concerns => :paginatable
     resources :authors, only: [:index, :show], :concerns => [:nested_paginatable, :paginatable]
@@ -30,6 +62,9 @@ MakoveySite::Application.routes.draw do
     get '/about' => 'pages#about'
     get '/history' => 'pages#history'
     get '/contacts' => 'pages#contacts'
+  end
+
+
 
 
 

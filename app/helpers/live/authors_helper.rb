@@ -1,0 +1,2 @@
+module Live::AuthorsHelper
+end
