@@ -7,6 +7,7 @@ MakoveySite::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+    #  match '/', to: 'pages#history', constrains: {subdomain: 'live'}, via: [:get]
 
     concern :paginatable do
       get '(p/:page)', :action => :index, :on => :collection, :as => ''
@@ -29,6 +30,8 @@ MakoveySite::Application.routes.draw do
     get '/about' => 'pages#about'
     get '/history' => 'pages#history'
     get '/contacts' => 'pages#contacts'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

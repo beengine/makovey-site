@@ -1,5 +1,5 @@
 <%= form_tag("/schedule", method: "post") do %>
-  <%= select_tag(:id, options_from_collection_for_select(Classs.all, :id, :name_uk)) %>
+  <%= select_tag(:id, options_from_collection_for_select(Classs.all, :id, :name_uk, @cur_class.id)) %>
   <%= submit_tag("Вибрати") %>
 <% end %>
 <div class="table-wrapper">

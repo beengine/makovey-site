@@ -14,6 +14,7 @@ class ClasssesController < ApplicationController
   end
   def search
     classs=Classs.friendly.find(params[:id])
+    session[:classs_id] = classs.id
     redirect_to schedule_url(classs)
   end
 end
