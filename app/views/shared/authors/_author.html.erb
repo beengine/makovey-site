@@ -1,0 +1,28 @@
+<article class="post">
+	<header>
+		<div class="title">
+			<h2><%= link_to author.name_uk, author %></h2>
+			<p><%= mail_to author.email %></p>
+		</div>
+		<div class="meta">
+			<time class="published"><%= localize(author.created_at, format: :authjoin) %></time>
+			<%= link_to author, class: "author" do %>
+				<span class="name"><%= t('posts') %><%= author.posts.size %></span>
+				<%= image_tag(author.avatar) %>
+			<% end %>
+		</div>
+	</header>
+	<section>
+		<p><%= truncate(sanitize(author.info_uk), length: 200, separator: ' ') %></p>
+	</section>
+	<footer>
+		<ul class="actions">
+			<li><%= link_to t('continueauth'), author, class: "button big" %></li>
+		</ul>
+		<ul class="stats">
+			<li><a href="#"><%= t('authors') %></a></li>
+			<li><a href="#" class="icon fa-heart">28</a></li>
+			<li><a href="#" class="icon fa-eye">128</a></li>
+		</ul>
+	</footer>
+</article>

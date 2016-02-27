@@ -1,0 +1,24 @@
+<article class="post">
+	<header>
+		<div class="title">
+			<h2><%= @post.title_uk %></h2>
+			<%= snd_title_is_empty @post %>
+		</div>
+		<div class="meta">
+			<time class="published"><%= localize(@post.created_at, format: :long) %></time>
+			<%= link_to @post.author, class: "author" do %>
+				<span class="name"><%= @post.author.name_uk %></span>
+				<%= image_tag(@post.author.avatar) %>
+			<% end %>
+		</div>
+	</header>
+	<%= photo_is_empty @post %>
+	<p><%= sanitize(@post.body_uk) %></p>
+	<footer>
+		<ul class="stats">
+			<li><%= link_to @post.rubric.name_uk, @post.rubric %></li>
+			<li><a href="#" class="icon fa-heart">28</a></li>
+			<li><a href="#" class="icon fa-eye"><%= @post.impressionist_count %></a></li>
+		</ul>
+	</footer>
+</article>

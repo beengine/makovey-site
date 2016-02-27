@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221180936) do
+ActiveRecord::Schema.define(version: 20160226172810) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160221180936) do
     t.datetime "updated_at"
     t.string   "avatar",     limit: 255
     t.string   "slug",       limit: 255
+    t.integer  "site",                   default: 0
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -140,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160221180936) do
     t.string   "slug",            limit: 255
     t.string   "second_title_uk", limit: 255
     t.string   "second_title_en", limit: 255
+    t.integer  "site",                        default: 0
   end
 
   add_index "posts", ["author_id"], name: "index_posts_on_author_id"
@@ -160,6 +162,7 @@ ActiveRecord::Schema.define(version: 20160221180936) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug",       limit: 255
+    t.integer  "site",                   default: 0
   end
 
   create_table "schedules", force: :cascade do |t|

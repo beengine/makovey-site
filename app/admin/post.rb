@@ -3,7 +3,7 @@ ActiveAdmin.register Post do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-	permit_params :title_uk, :title_en, :author_id, :body_uk, :body_en, :rubric_id, :post_photo, :second_title_uk, :second_title_en
+	permit_params :title_uk, :title_en, :author_id, :body_uk, :body_en, :rubric_id, :post_photo, :second_title_uk, :second_title_en, :site
 	index do
     column :title_uk
     column :author
@@ -13,8 +13,9 @@ ActiveAdmin.register Post do
 	form do |f|
 		f.semantic_errors
 		f.inputs do
-			input :author
-			input :rubric
+      input :site, as: :radio, collection: Post.sites.keys
+			input :author, collection: Author.all
+			input :rubric, as: :radio
 			input :post_photo
 			input :title_uk
 			input :title_en

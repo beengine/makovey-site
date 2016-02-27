@@ -1,0 +1,7 @@
+<%= render partial: 'shared/posts/post', collection: @posts %>
+<!-- Pagination -->
+<ul class="actions pagination">
+<!--	<li><a href="" class="button big previous"><%= t('prev') %></a></li> -->
+	<li><%= link_to_previous_page @posts, t('prev'), class: "button big previous" %></li>
+	<li><%= link_to_next_page @posts, t('next'), class: "button big next" %></li>
+</ul>

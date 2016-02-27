@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   is_impressionable
   extend FriendlyId
   friendly_id :title_en, :use => [:slugged, :finders]
+  enum site: [:main, :live]
   def name
   	"#{title_uk}"
   end
