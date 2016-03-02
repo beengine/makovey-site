@@ -14,7 +14,7 @@ ActiveAdmin.register Post do
 		f.semantic_errors
 		f.inputs do
       input :site, as: :radio, collection: Post.sites.keys
-			input :author, collection: Author.all
+			input :author, collection: grouped_options_for_select(grouped_options)
 			input :rubric, as: :radio
 			input :post_photo
 			input :title_uk
@@ -26,6 +26,35 @@ ActiveAdmin.register Post do
   	end
   	f.actions
 	end
+
+  controller do
+    def new
+      main = []
+      live = []
+      mains=Author.all_sites
+      Author.all_sites.each do |auth|
+        main << auth.name_en
+        live << auth.name_en
+      end
+      Author.main.each do |auth|
+        main << auth.name_en
+      end
+      Author.live.each do |auth|
+        live << auth.name_en
+      end
+      @grouped_options = [['main', main],['live', live]]
+      print(@grouped_options)
+      @gro = [
+ ['North America',
+   [['United States','US'],'Canada']],
+ ['Europe',
+   ['Denmark','Germany','France']]
+]
+print(@gro)
+  #    print(@grouped_options)
+      super
+    end
+  end
 
 #
 # or
