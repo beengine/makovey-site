@@ -2,10 +2,14 @@
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
+There is an application of school named after Osyp Makovey, who spent a lot of his life in Zalishchyky in nineteen century.
+Makovey site app consists of two sites: official site with all ommited shitty stuff and site named "live", where every pupil or even teacher can post a post about things, which he would join with all of us.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby 2.0.0
+
+* Rails 4.2
 
 * System dependencies
 
