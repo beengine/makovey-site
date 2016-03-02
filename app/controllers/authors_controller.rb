@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-  	@authors=Author.all.page(params[:page]).per(8)
+  	@authors=Author.where("site = 0 OR site = 1").page(params[:page]).per(8)
   end
 
   def show

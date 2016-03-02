@@ -1,6 +1,6 @@
 class Live::AuthorsController < ApplicationController
   def index
-    @authors=Author.all.page(params[:page]).per(8)
+    @authors=Author.where("site = 0 OR site = 2").page(params[:page]).per(8)
     render :template => 'shared/authors/index'
   end
 
