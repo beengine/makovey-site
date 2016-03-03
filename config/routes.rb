@@ -37,6 +37,7 @@ MakoveySite::Application.routes.draw do
   scope module: 'live' do
     constraints subdomain: 'live' do
       get '/' => 'posts#index'
+      get '/about' => 'pages#about'
       resources :posts, only: [:index, :show]
       resources :authors, only: [:index, :show]
       resources :rubrics, only: [:index, :show]

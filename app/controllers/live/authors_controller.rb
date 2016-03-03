@@ -6,7 +6,7 @@ class Live::AuthorsController < ApplicationController
 
   def show
     @author=Author.friendly.find(params[:id])
-    @posts=@author.posts.page(params[:page]).per(5)
+    @posts=@author.posts.where("site = 1").page(params[:page]).per(5)
     render :template => 'shared/authors/show'
   end
 end

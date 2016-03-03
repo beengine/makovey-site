@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   private
     def sidebar_posts
       @side_posts=Post.order('created_at DESC').limit(3)
+      @site = request.subdomain + '/' unless request.subdomain.blank?
     end
 
     def set_classs

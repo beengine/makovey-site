@@ -14,8 +14,8 @@ ActiveAdmin.register Post do
 		f.semantic_errors
 		f.inputs do
       input :site, as: :radio, collection: Post.sites.keys
-			input :author, collection: grouped_options_for_select(grouped_options)
-			input :rubric, as: :radio
+			input :author, collection: grouped_options_for_select(grouped_authors)
+			input :rubric, collection: grouped_options_for_select(grouped_rubrics)
 			input :post_photo
 			input :title_uk
 			input :title_en
@@ -29,38 +29,65 @@ ActiveAdmin.register Post do
 
   controller do
     def new
-      main = []
+     main = []
       live = []
-      mains=Author.all_sites
       Author.all_sites.each do |auth|
-        main << auth.name_en
-        live << auth.name_en
+        main << [auth.name_uk, auth.id]
+        live << [auth.name_uk, auth.id]
       end
       Author.main.each do |auth|
-        main << auth.name_en
+        main << [auth.name_uk, auth.id]
       end
       Author.live.each do |auth|
-        live << auth.name_en
+        live << [auth.name_uk, auth.id]
       end
-      @grouped_options = [['main', main],['live', live]]
-  #    print(@grouped_options)
+      @grouped_authors = [['main', main],['live', live]]
+
+      main = []
+      live = []
+      Rubric.all_sites.each do |rubr|
+        main << [rubr.name_uk, rubr.id]
+        live << [rubr.name_uk, rubr.id]
+      end
+      Rubric.main.each do |rubr|
+        main << [rubr.name_uk, rubr.id]
+      end
+      Rubric.live.each do |rubr|
+        live << [rubr.name_uk, rubr.id]
+      end
+      @grouped_rubrics = [['main', main],['live', live]]
+
       super
     end
     def edit
-            main = []
+      main = []
       live = []
-      mains=Author.all_sites
       Author.all_sites.each do |auth|
-        main << [auth.name_en, auth.id]
-        live << [auth.name_en, auth.id]
+        main << [auth.name_uk, auth.id]
+        live << [auth.name_uk, auth.id]
       end
       Author.main.each do |auth|
-        main << [auth.name_en, auth.id]
+        main << [auth.name_uk, auth.id]
       end
       Author.live.each do |auth|
-        live << [auth.name_en, auth.id]
+        live << [auth.name_uk, auth.id]
       end
-      @grouped_options = [['main', main],['live', live]]
+      @grouped_authors = [['main', main],['live', live]]
+
+      main = []
+      live = []
+      Rubric.all_sites.each do |rubr|
+        main << [rubr.name_uk, rubr.id]
+        live << [rubr.name_uk, rubr.id]
+      end
+      Rubric.main.each do |rubr|
+        main << [rubr.name_uk, rubr.id]
+      end
+      Rubric.live.each do |rubr|
+        live << [rubr.name_uk, rubr.id]
+      end
+      @grouped_rubrics = [['main', main],['live', live]]
+
       super
     end
   end

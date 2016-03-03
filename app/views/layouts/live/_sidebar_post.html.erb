@@ -1,0 +1,15 @@
+<section>
+		<ul class="posts">
+			<% @side_posts.each do |post| %>
+				<li>
+					<article>
+						<header>
+							<h3><%= link_to post.title_uk, post %></h3>
+							<time class="published"><%= localize(post.created_at, format: :side_post) %></time>
+						</header>
+						<%= photo_is_empty_side post %>
+					</article>
+				</li>
+			<% end %>
+		</ul>
+</section>

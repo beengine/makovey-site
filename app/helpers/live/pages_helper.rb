@@ -1,0 +1,2 @@
+module Live::PagesHelper
+end

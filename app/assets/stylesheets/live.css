@@ -1,0 +1,8 @@
+a:hover {
+			border-bottom-color: transparent;
+			color: red !important;
+		}
+header#header{
+	background-color: #000000;
+	color: #ffffff;
+}

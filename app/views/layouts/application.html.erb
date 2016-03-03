@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Makovey Site</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag params[:controller] %>
+  <title>Школа Маковея</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= stylesheet_link_tag "live", media: "all" if @site %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<!-- Wrapper -->
 	<div id="wrapper">
-		<%= render 'layouts/header' %>
+		<%= render "layouts/#{@site}header" %>
 			<div id="main">
 				<%= yield %>
 			</div>
-		<%= render 'layouts/sidebar' %>
+		<%= render "layouts/#{@site}sidebar" %>
 	</div>
 </body>
 </html>
