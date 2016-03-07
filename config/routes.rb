@@ -17,9 +17,9 @@ MakoveySite::Application.routes.draw do
       get '(p/:page)', :action => :show, :on => :member, :as => ''
     end
 
-         root to:'pages#about'
-  constraints subdomain: /^$|www/ do
 
+  constraints subdomain: 'intense-peak-28279' do
+    root to:'pages#about'
     resources :posts, only: [:index, :show], :concerns => :paginatable
     resources :authors, only: [:index, :show], :concerns => [:nested_paginatable, :paginatable]
     resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
@@ -35,7 +35,7 @@ MakoveySite::Application.routes.draw do
 
 
   scope module: 'live' do
-    constraints subdomain: 'live' do
+    constraints subdomain: 'live.intense-peak-28279' do
       get '/' => 'posts#index'
       get '/about' => 'pages#about'
       resources :posts, only: [:index, :show]
