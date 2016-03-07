@@ -17,9 +17,9 @@ MakoveySite::Application.routes.draw do
       get '(p/:page)', :action => :show, :on => :member, :as => ''
     end
 
-
+         root to:'pages#about'
   constraints subdomain: /^$|www/ do
-    root to:'pages#about'
+
     resources :posts, only: [:index, :show], :concerns => :paginatable
     resources :authors, only: [:index, :show], :concerns => [:nested_paginatable, :paginatable]
     resources :rubrics, only: [:index, :show], :concerns => :nested_paginatable
@@ -31,6 +31,17 @@ MakoveySite::Application.routes.draw do
     get '/about' => 'pages#about'
     get '/history' => 'pages#history'
     get '/contacts' => 'pages#contacts'
+  end
+
+
+  scope module: 'live' do
+    constraints subdomain: 'live' do
+      get '/' => 'posts#index'
+      get '/about' => 'pages#about'
+      resources :posts, only: [:index, :show]
+      resources :authors, only: [:index, :show]
+      resources :rubrics, only: [:index, :show]
+    end
   end
 
 
