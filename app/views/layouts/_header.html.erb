@@ -8,7 +8,7 @@
 				<li><a href="/history"><%= t('history') %></a></li>
 				<li><a href="/contacts"><%= t('contacts') %></a></li>
 				<li><a href="/about"><%= t('about') %></a></li>
-				<li><a href="http://live.lvh.me:3000"><b style="color:red">Live</b></a></li>
+				<li><a href="http://live.makoveyschool.com/"><b style="color:red">Live</b></a></li>
 				<li>
 					<% if session[:classs_id] %>
 						<%= content_tag :a, @cur_class.name_uk, href: schedule_url(@cur_class) %>
