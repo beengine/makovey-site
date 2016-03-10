@@ -7,4 +7,9 @@ class PagesController < ApplicationController
   
   def contacts
   end
+
+     def set_site
+    @site='main'
+    @title='Офіційний сайт школи Маковея'
+  end
 end

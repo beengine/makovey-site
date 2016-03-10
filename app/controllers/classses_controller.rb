@@ -17,4 +17,9 @@ class ClasssesController < ApplicationController
     session[:classs_id] = classs.id
     redirect_to schedule_url(classs)
   end
+
+     def set_site
+    @site='main'
+    @title='Офіційний сайт школи Маковея'
+  end
 end

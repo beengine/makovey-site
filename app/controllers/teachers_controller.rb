@@ -6,4 +6,9 @@ class TeachersController < ApplicationController
   def show
     @teacher=Teacher.friendly.find(params[:id])
   end
+
+  def set_site
+    @site='main'
+    @title='Офіційний сайт школи Маковея'
+  end
 end

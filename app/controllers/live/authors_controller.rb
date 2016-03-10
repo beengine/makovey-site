@@ -9,4 +9,9 @@ class Live::AuthorsController < ApplicationController
     @posts=@author.posts.where("site = 1").page(params[:page]).per(5)
     render :template => 'shared/authors/show'
   end
+
+  def set_site
+    @site='live'
+    @title='Makovey LIVE'
+  end
 end

@@ -8,4 +8,9 @@ class PostsController < ApplicationController
   	@post=Post.find(params[:id])
   	impressionist @post
   end
+
+     def set_site
+    @site='main'
+    @title='Офіційний сайт школи Маковея'
+  end
 end

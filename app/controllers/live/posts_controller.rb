@@ -9,4 +9,9 @@ class Live::PostsController < ApplicationController
     impressionist @post
     render :template => 'shared/posts/show'
   end
+
+  def set_site
+    @site='live'
+    @title='Makovey LIVE'
+  end
 end
