@@ -9,6 +9,7 @@ uk:
   about: "Про нас"
   continue: "Читати далі"
   continueauth: "Читати автора"
+  continuerubr: "Читати рубрику"
   prev: "Попередня сторінка"
   next: "Наступна сторінка"
   search: "Пошук"
@@ -20,6 +21,7 @@ uk:
   teachers: "Педколектив"
   history: "Історія"
   contacts: "Контакти"
+  works: працює з %{year} року
 
   
   subject:

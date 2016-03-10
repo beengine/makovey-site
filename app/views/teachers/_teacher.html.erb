@@ -2,12 +2,12 @@
 	<header class="teacher">
 		<div class="title">
 			<h2><%= link_to teacher.name_uk, teacher %></h2>
-			<p>Вчитель езотерики</p>
-			<p>Працює з 1909 року</p>
+			<p><%= teacher.short_info %></p>
+			<p><%= t('works', year: teacher.since) %></p>
 		</div>
 		<div class="meta">
 			<%= link_to teacher, class: "teacher" do %>
-				<%= image_tag("/assets/cat-ostap.jpeg") %>
+				<%= image_tag(teacher.photo) %>
 			<% end %>
 		</div>
 	</header>

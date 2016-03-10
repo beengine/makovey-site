@@ -1,5 +1,17 @@
 <article class="post">
-	<section>
-		<h2><%= link_to rubric.name_uk, rubric %></h2>
-	</section>
+	<header>
+		<div class="title">
+			<h2><%= link_to rubric.name_uk, rubric %></h2>
+		</div>
+		<div class="meta">
+		<a class="author">
+		<span class="name">Рубрика</span>
+		<img src="/assets/osyp-small.png">
+		</a>
+		</div>
+	</header>
+	<footer>
+		<ul class="actions">
+			<li><%= link_to t('continuerubr'), rubric, class: "button big" %></li>
+		</ul>
 </article>
