@@ -12,4 +12,7 @@ class ApplicationController < ActionController::Base
     def set_classs
       @cur_class = Classs.find(session[:classs_id]) if session[:classs_id]
     end
+    def set_site
+    @site='main'
+  end
 end
