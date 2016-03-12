@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :sidebar_posts, :set_classs, :set_site
+  before_action :sidebar_posts, :set_classs, :set_site, except: :active_admin
 
   private
     def sidebar_posts
