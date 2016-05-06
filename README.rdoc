@@ -5,6 +5,8 @@ available on http://www.makoveyschool.com
 There is an application of school named after Osyp Makovey, who spent a lot of his life in Zalishchyky in nineteen century.
 Makovey site app consists of two sites: official site with all ommited shitty stuff and site named "live", where every student or even teacher can post a post about things, which he would join with all of us.
 
+Recently, site is empty, because nobody in school wants to fill it. Sad but true.
+
 About app:
 
 * Ruby 2.0.0
