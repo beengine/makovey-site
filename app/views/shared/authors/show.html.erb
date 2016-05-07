@@ -8,7 +8,7 @@
 			<time class="published"><%= localize(@author.created_at, format: :authjoin) %></time>
 			<%= link_to @author, class: "author" do %>
 				<span class="name"><%= t('posts') %><%= @author.posts.size %></span>
-				<%= image_tag(@author.avatar) %>
+				<%= cl_image_tag(@author.avatar) %>
 			<% end %>
 		</div>
 	</header>

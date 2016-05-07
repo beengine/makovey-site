@@ -8,7 +8,7 @@
 			<time class="published"><%= localize(@post.created_at, format: :long) %></time>
 			<%= link_to @post.author, class: "author" do %>
 				<span class="name"><%= @post.author.name_uk %></span>
-				<%= image_tag(@post.author.avatar) %>
+				<%= cl_image_tag(@post.author.avatar) %>
 			<% end %>
 		</div>
 	</header>
