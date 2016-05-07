@@ -13,7 +13,7 @@
 		</div>
 	</header>
 	<%= photo_is_empty @post %>
-	<p><%= sanitize(@post.body_uk) %></p>
+	<%= sanitize(@post.body_uk) %>
 	<footer>
 		<ul class="stats">
 			<li><%= link_to @post.rubric.name_uk, @post.rubric %></li>

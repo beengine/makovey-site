@@ -31,6 +31,7 @@ MakoveySite::Application.routes.draw do
     get '/about' => 'pages#about'
     get '/history' => 'pages#history'
     get '/contacts' => 'pages#contacts'
+    get '/:id' => 'pages#show'
   end
 
 

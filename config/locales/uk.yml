@@ -22,6 +22,8 @@ uk:
   history: "Історія"
   contacts: "Контакти"
   works: працює з %{year} року
+  scientists: "Юні науковці"
+  fun: 'Дозвілля'
 
   
   subject:

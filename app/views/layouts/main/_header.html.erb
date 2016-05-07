@@ -4,18 +4,30 @@
 		<nav class="links">
 			<ul>
 				<li><a href="/posts"><%= t('news') %></a></li>
-				<li><a href="/teachers"><%= t('teachers') %></a></li>
-				<li><a href="/history"><%= t('history') %></a></li>
-				<li><a href="/contacts"><%= t('contacts') %></a></li>
-				<li><a href="/about"><%= t('about') %></a></li>
+				<li class="dropdown"><a href="/about"><%= t('about') %><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+					<ul class="dropdown-content">
+						<li><a href="/teachers"><%= t('teachers') %></a></li>
+    					<li><a href="/history"><%= t('history') %></a></li>
+						<li><a href="/contacts"><%= t('contacts') %></a></li>
+  					</ul>
+  				</li>
+				<li class="dropdown"><a href="/contacts"><%= t('scientists') %><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+					<ul class="dropdown-content">
+    					<li><a href="/man">МАН</a></li>
+						<li><a href="/intellectual">Інтелектуал</a></li>
+						<li><a href="/news/science"><%= t('news') %></a></li>
+  					</ul>
+  				</li>
+				<li><a href="/contacts"><%= t('fun') %></a></li>
+			<!--	<li><a href="/about"><%= t('about') %></a></li> -->
 				<li><a href="http://live.makoveyschool.com/"><b style="color:red">Live</b></a></li>
-				<li>
+			<!--	<li>
 					<% if session[:classs_id] %>
 						<%= content_tag :a, @cur_class.name_uk, href: schedule_url(@cur_class) %>
 					<% else %>
 						<%= content_tag :a, t('schedule'), href: "/schedule" %>
 					<% end %>
-				</li>			
+				</li>		-->	
 			</ul>
 		</nav>
 		
